@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hüpf-Frosch</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh; margin: 0; overflow: hidden;
+      display: grid; place-items: center;
+      font-family: system-ui, sans-serif; color: #173b27;
+      background: linear-gradient(#9be7ff 0 64%, #78d66b 64%);
+    }
+    main { text-align: center; padding: 2rem; }
+    h1 { margin: 0 0 2rem; font-size: clamp(2rem, 8vw, 4rem); }
+    .scene { height: 240px; width: min(440px, 85vw); position: relative; }
+    .frog {
+      position: absolute; left: 50%; bottom: 25px; width: 150px; height: 105px;
+      transform: translateX(-50%); border-radius: 55% 55% 45% 45%;
+      background: #35c653; box-shadow: inset -12px -10px #24a342;
+      animation: hop 1s ease-in-out infinite;
+    }
+    .eye { position: absolute; top: -25px; width: 52px; height: 57px; border-radius: 50%; background: #40d85d; }
+    .eye.left { left: 20px; } .eye.right { right: 20px; }
+    .eye::after { content: ''; position: absolute; width: 15px; height: 25px; border-radius: 50%; background: #173b27; left: 19px; top: 16px; }
+    .smile { position: absolute; left: 39px; top: 52px; width: 72px; height: 26px; border-bottom: 5px solid #173b27; border-radius: 0 0 50% 50%; }
+    .leg { position: absolute; bottom: -9px; width: 58px; height: 22px; border-radius: 50%; background: #24a342; }
+    .leg.left { left: -20px; transform: rotate(-20deg); } .leg.right { right: -20px; transform: rotate(20deg); }
+    .shadow { position: absolute; left: 50%; bottom: 13px; width: 145px; height: 20px; transform: translateX(-50%); border-radius: 50%; background: #338c43; opacity: .35; animation: shadow 1s ease-in-out infinite; }
+    @keyframes hop { 0%, 100% { translate: 0 0; } 50% { translate: 0 -95px; } }
+    @keyframes shadow { 0%, 100% { scale: 1; opacity: .35; } 50% { scale: .65; opacity: .16; } }
+    @media (prefers-reduced-motion: reduce) { .frog, .shadow { animation: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Der Hüpf-Frosch</h1>
+    <div class="scene" role="img" aria-label="Ein grüner Cartoon-Frosch hüpft auf einer Wiese">
+      <div class="shadow"></div>
+      <div class="frog"><i class="eye left"></i><i class="eye right"></i><div class="smile"></div><i class="leg left"></i><i class="leg right"></i></div>
+    </div>
+    <p>Ein fröhlicher Frosch, nur mit HTML und CSS animiert.</p>
+  </main>
+</body>
+</html>
